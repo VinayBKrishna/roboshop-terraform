@@ -5,7 +5,7 @@ resource "aws_instance" "instance" {
     vpc_security_group_ids = var.vpc_security_group_ids
 
     tags = {
-      Name = " ${ var.instance[each.key] }-terraform "
+      Name = " ${ each.key }-terraform "
     }
 
 
@@ -14,7 +14,7 @@ resource "aws_instance" "instance" {
 resource "aws_route53_record" "frontend" {
     for_each = var.instance
     zone_id = var.zone_id
-    name    = "${var.instance[each.key]}-${var.env}"
+    name    = "${each.key}-${var.env}"
     type    = "A"
     ttl     = 300
     records = [aws_instance.instance[each.key].private_ip]
