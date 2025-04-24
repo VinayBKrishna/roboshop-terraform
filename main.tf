@@ -21,10 +21,7 @@ resource "aws_route53_record" "frontend" {
 }
 
 output "instance_private_ips" {
-    value = {
-        for key, value in var.instance :
-        key => aws_instance.instance[key].private_ip
-    }
+    value =  aws_instance.instance
 }
 #
 #
