@@ -19,6 +19,13 @@ resource "aws_route53_record" "frontend" {
     ttl     = 300
     records = [aws_instance.instance[each.key].private_ip]
 }
+
+output "instance_private_ips" {
+    value = {
+        for key in var.instance :
+        key => aws_instance.instance[key].private_ip
+    }
+}
 #
 #
 # #everytime if provisioner change the whole instance is recreated so better keep it outside aws instance in a null_resource
