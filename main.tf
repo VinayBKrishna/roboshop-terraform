@@ -1,14 +1,12 @@
 resource "aws_instance" "instance" {
     for_each = var.instance
-    ami           = each.value.ami_id # Amazon Linux 2 AMI in us-east-1
+    ami = each.value.ami_id # Amazon Linux 2 AMI in us-east-1
     instance_type = each.value.instance_type
     vpc_security_group_ids = var.vpc_security_group_ids
 
     tags = {
       Name = " ${ each.key }-terraform "
     }
-
-
 }
 
 resource "aws_route53_record" "frontend" {
