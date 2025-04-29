@@ -25,7 +25,7 @@ output "instance_private_ips" {
 #
 # #everytime if provisioner change the whole instance is recreated so better keep it outside aws instance in a null_resource
 resource "null_resource" "frontend" {
-
+    depends_on = [aws_route53_record.frontend]
     provisioner "remote-exec" {
 
         connection {
@@ -36,8 +36,8 @@ resource "null_resource" "frontend" {
         }
 
         inline = [
-            "pip3.11 install ansible",
-            "ansible-pull -i localhost, -u https://github.com/VinayBKrishna/roboshop-ansible.git roboshop.yml -e component_name=${var.name} -e env=${var.env}",
+            "sudo pip3.11 install ansible",
+            "ansible-pull -i localhost, -U https://github.com/VinayBKrishna/roboshop-ansible.git roboshop.yml -e component_name=${var.name} -e env=${var.env}",
         ]
     }
 }
