@@ -1,15 +1,15 @@
 instance = {
   frontend = {
     ami_id = "ami-09c813fb71547fc4f"
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
   },
   catalogue = {
     ami_id = "ami-09c813fb71547fc4f"
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
   },
   mongo = {
     ami_id = "ami-09c813fb71547fc4f"
-    instance_type = "t3.micro"
+    instance_type = "t3.small"
   }
 
 }
