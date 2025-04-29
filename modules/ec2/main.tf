@@ -35,11 +35,11 @@ resource "null_resource" "frontend" {
             host     = aws_instance.instance.private_ip
         }
 
+
         inline = [
-            "sudo dnf install -y python3 python3-pip git",
-            "python3 -m pip install --upgrade pip setuptools",
-            "python3 -m pip install ansible",
+            "sudo pip3.11 install ansible hvac",
             "ansible-pull -i localhost, https://github.com/VinayBKrishna/roboshop-ansible.git roboshop.yml -e component_name=${var.name} -e env=${var.env}"
+
         ]
 
 
