@@ -30,14 +30,14 @@ resource "null_resource" "frontend" {
 
         connection {
             type     = "ssh"
-            user     = "ec2-user"
-            password = "DevOps321"
+            user     = data.vault_generic_secret.ssh_secret.data["username"]
+            password = data.vault_generic_secret.ssh_secret.data["password"]
             host     = aws_instance.instance.private_ip
         }
 
 
         inline = [
-            "sudo pip3.11 install ansible",
+            "sudo pip3.11 install ansible hvac",
             "ansible-pull -i localhost, -U https://github.com/VinayBKrishna/roboshop-ansible.git -e component_name=${var.name} -e env=${var.env} roboshop.yml"
         ]
 
