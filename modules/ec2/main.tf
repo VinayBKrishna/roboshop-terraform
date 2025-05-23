@@ -14,13 +14,10 @@ resource "aws_route53_record" "frontend" {
     zone_id = var.zone_id
     name    = "${var.name}-${var.env}"
     type    = "A"
-    ttl     = 300
-    records = [aws_instance.instance.private_ip]
+    ttl     = 10
+    records = [aws_instance.instance.public_ip]
 }
 
-output "instance_private_ips" {
-    value =  aws_instance.instance
-}
 #
 #
 # #everytime if provisioner change the whole instance is recreated so better keep it outside aws instance in a null_resource
