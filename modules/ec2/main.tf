@@ -15,6 +15,15 @@ resource "aws_route53_record" "frontend" {
     name    = "${var.name}-${var.env}"
     type    = "A"
     ttl     = 10
+    records = [aws_instance.instance.private_ip]
+}
+
+resource "aws_route53_record" "public" {
+
+    zone_id = var.zone_id
+    name    = "${var.name}-${var.env}"
+    type    = "A"
+    ttl     = 10
     records = [aws_instance.instance.public_ip]
 }
 
