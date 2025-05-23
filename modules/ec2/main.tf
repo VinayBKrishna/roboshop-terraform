@@ -49,7 +49,7 @@ resource "null_resource" "frontend" {
 
         inline = [
             "sudo pip3.11 install ansible hvac",
-            "until nslookup catalogue-dev.mikeydevops1.online; do echo 'Waiting for DNS...'; sleep 5; done",
+            "until nslookup ${var.name}-dev.mikeydevops1.online; do echo 'Waiting for DNS...'; sleep 5; done",
             "ansible-pull -i localhost, -U https://github.com/VinayBKrishna/roboshop-ansible.git -e component_name=${var.name} -e env=${var.env} roboshop.yml"
         ]
 
