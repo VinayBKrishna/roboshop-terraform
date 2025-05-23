@@ -31,7 +31,7 @@ resource "aws_route53_record" "frontend" {
 #
 # #everytime if provisioner change the whole instance is recreated so better keep it outside aws instance in a null_resource
 resource "null_resource" "frontend" {
-    # depends_on = [aws_route53_record.frontend]
+    depends_on = [aws_route53_record.frontend]
 
     triggers = {
         instance_id_change = aws_instance.instance.id
