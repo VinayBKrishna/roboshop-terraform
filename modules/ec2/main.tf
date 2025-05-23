@@ -9,29 +9,29 @@ resource "aws_instance" "instance" {
     }
 }
 
-resource "aws_route53_record" "frontend" {
+# resource "aws_route53_record" "frontend" {
+#
+#     zone_id = var.zone_id
+#     name    = "${var.name}-${var.env}"
+#     type    = "A"
+#     ttl     = 10
+#     records = [aws_instance.instance.private_ip]
+# }
 
-    zone_id = var.zone_id
-    name    = "${var.name}-${var.env}"
-    type    = "A"
-    ttl     = 10
-    records = [aws_instance.instance.private_ip]
-}
-
-resource "aws_route53_record" "public" {
-
-    zone_id = var.zone_id
-    name    = "${var.name}-${var.env}"
-    type    = "A"
-    ttl     = 10
-    records = [aws_instance.instance.public_ip]
-}
+# resource "aws_route53_record" "public" {
+#
+#     zone_id = var.zone_id
+#     name    = "${var.name}-${var.env}"
+#     type    = "A"
+#     ttl     = 10
+#     records = [aws_instance.instance.public_ip]
+# }
 
 #
 #
 # #everytime if provisioner change the whole instance is recreated so better keep it outside aws instance in a null_resource
 resource "null_resource" "frontend" {
-    depends_on = [aws_route53_record.frontend]
+    # depends_on = [aws_route53_record.frontend]
 
     triggers = {
         instance_id_change = aws_instance.instance.id
