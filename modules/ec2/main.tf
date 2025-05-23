@@ -15,7 +15,7 @@ resource "aws_route53_record" "frontend" {
     name    = "${var.name}-${var.env}"
     type    = "A"
     ttl     = 10
-    records = [aws_instance.instance.private_ip]
+    records = [aws_instance.instance.public_ip]
 }
 
 # resource "aws_route53_record" "public" {
@@ -49,6 +49,7 @@ resource "null_resource" "frontend" {
 
         inline = [
             "sudo pip3.11 install ansible hvac",
+            "until nslookup catalogue-dev.mikeydevops1.online; do echo 'Waiting for DNS...'; sleep 5; done",
             "ansible-pull -i localhost, -U https://github.com/VinayBKrishna/roboshop-ansible.git -e component_name=${var.name} -e env=${var.env} roboshop.yml"
         ]
 
