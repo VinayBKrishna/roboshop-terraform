@@ -2,14 +2,17 @@ instance = {
   frontend = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+    ansible_role = "frontend-docker"
   },
   mongo = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+
   },
   catalogue = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+    ansible_role = "catalogue-docker"
   },
   redis = {
     ami_id = "ami-09c813fb71547fc4f"
@@ -19,10 +22,12 @@ instance = {
   user = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+    ansible_role = "user-docker"
   },
   # cart = {
   #   ami_id = "ami-09c813fb71547fc4f"
   #   instance_type = "t3.small"
+  #   ansible_role = "cart-docker"
   # },
   #
   mysql = {
@@ -32,6 +37,7 @@ instance = {
   # shipping = {
   #   ami_id = "ami-09c813fb71547fc4f"
   #   instance_type = "t3.small"
+  #   ansible_role = "shipping-docker"
   # },
   # rabbitmq = {
   #   ami_id = "ami-09c813fb71547fc4f"
@@ -40,6 +46,7 @@ instance = {
   # payment = {
   #   ami_id = "ami-09c813fb71547fc4f"
   #   instance_type = "t3.small"
+  #   ansible_role = "payment-docker"
   # },
 
 
