@@ -24,30 +24,30 @@ instance = {
     instance_type = "t3.small"
     ansible_role = "user-docker"
   },
-  # cart = {
-  #   ami_id = "ami-09c813fb71547fc4f"
-  #   instance_type = "t3.small"
-  #   ansible_role = "cart-docker"
-  # },
+  cart = {
+    ami_id = "ami-09c813fb71547fc4f"
+    instance_type = "t3.small"
+    ansible_role = "cart-docker"
+  },
   #
   mysql = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
   },
-  # shipping = {
-  #   ami_id = "ami-09c813fb71547fc4f"
-  #   instance_type = "t3.small"
-  #   ansible_role = "shipping-docker"
-  # },
-  # rabbitmq = {
-  #   ami_id = "ami-09c813fb71547fc4f"
-  #   instance_type = "t3.small"
-  # },
-  # payment = {
-  #   ami_id = "ami-09c813fb71547fc4f"
-  #   instance_type = "t3.small"
-  #   ansible_role = "payment-docker"
-  # },
+  shipping = {
+    ami_id = "ami-09c813fb71547fc4f"
+    instance_type = "t3.small"
+    ansible_role = "shipping-docker"
+  },
+  rabbitmq = {
+    ami_id = "ami-09c813fb71547fc4f"
+    instance_type = "t3.small"
+  },
+  payment = {
+    ami_id = "ami-09c813fb71547fc4f"
+    instance_type = "t3.small"
+    ansible_role = "payment-docker"
+  },
 
 
 
