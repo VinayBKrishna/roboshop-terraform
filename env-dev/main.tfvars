@@ -76,7 +76,7 @@ env="dev"
 
 eks = {
   main = {
-    subnets = ["subnet-0ecb86e39b3cc476f","subnet-0c68d8d674c3b5676"]
+    subnets = ["subnet-0c8c156354b299b12","subnet-068d93372de56df27"]
     eks_version = 1.32
   }
 }
