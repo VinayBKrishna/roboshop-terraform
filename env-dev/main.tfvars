@@ -78,6 +78,11 @@ eks = {
   main = {
     subnets = ["subnet-0c8c156354b299b12","subnet-068d93372de56df27"]
     eks_version = 1.32
+    node_groups = {
+        min_nodes = 1
+        max_nodes = 10
+        instance_type = ["t3.medium","t3.large"]
+    }
   }
 }
 

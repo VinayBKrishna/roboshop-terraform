@@ -16,3 +16,21 @@ resource "aws_eks_cluster" "example" {
 
 }
 
+resource "aws_eks_node_group" "main" {
+  for_each = var.node_groups
+  cluster_name    = aws_eks_cluster.example.name
+  node_group_name = each.name
+  node_role_arn   = aws_iam_role.node-role.arn
+  subnet_ids      = var.subnets
+  instance_types = each.value["instance_type"]
+
+  scaling_config {
+    desired_size = each.value["min_nodes"]
+    max_size     = each.value["max_nodes"]
+    min_size     = each.value["min_nodes"]
+  }
+
+
+
+
+}
