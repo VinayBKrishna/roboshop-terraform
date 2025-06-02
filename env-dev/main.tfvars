@@ -3,49 +3,64 @@ instance = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
     ansible_role = "frontend-docker"
+    root_volume_size = 30
   },
   mongo = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+    root_volume_size = 30
 
   },
   catalogue = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
     ansible_role = "catalogue-docker"
+    root_volume_size = 30
+
   },
   redis = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+    root_volume_size = 30
+
   },
 
   user = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
     ansible_role = "user-docker"
+    root_volume_size = 30
+
   },
   cart = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
     ansible_role = "cart-docker"
+    root_volume_size = 30
+
   },
   #
   mysql = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+    root_volume_size = 30
+
   },
   shipping = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+    root_volume_size = 30
     ansible_role = "shipping-docker"
   },
   rabbitmq = {
     ami_id = "ami-09c813fb71547fc4f"
+    root_volume_size = 30
     instance_type = "t3.small"
   },
   payment = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
+    root_volume_size = 30
     ansible_role = "payment-docker"
   },
 
@@ -58,5 +73,12 @@ zone_id = "Z09180393TY9K7UQDKE5E"
 vpc_security_group_ids = ["sg-0171a68ab5d431564"]
 
 env="dev"
+
+eks = {
+  main = {
+    subnets = ["subnet-0ecb86e39b3cc476f","subnet-0c68d8d674c3b5676"]
+    eks_version = 1.32
+  }
+}
 
 # terraform plan -var-file=env-prod/main.tfvars

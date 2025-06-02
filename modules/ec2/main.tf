@@ -1,9 +1,15 @@
+variable "root_volume_size" {
+    default = ""
+}
 resource "aws_instance" "instance" {
 
     ami = var.ami_id # Amazon Linux 2 AMI in us-east-1
     instance_type = var.instance_type
     vpc_security_group_ids = var.vpc_security_group_ids
-
+    root_block_device {
+        volume_size = var.root_volume_size
+        volume_type = "gp2"
+    }
     tags = {
       Name = " ${ var.name }-terraform "
     }
