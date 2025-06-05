@@ -8,7 +8,7 @@ instance = {
   mongo = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
-    root_volume_size = 30
+    root_volume_size = 20
 
   },
   catalogue = {
@@ -21,7 +21,7 @@ instance = {
   redis = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
-    root_volume_size = 30
+    root_volume_size = 20
 
   },
 
@@ -43,8 +43,7 @@ instance = {
   mysql = {
     ami_id = "ami-09c813fb71547fc4f"
     instance_type = "t3.small"
-    root_volume_size = 30
-
+    root_volume_size = 20
   },
   shipping = {
     ami_id = "ami-09c813fb71547fc4f"
@@ -54,7 +53,7 @@ instance = {
   },
   rabbitmq = {
     ami_id = "ami-09c813fb71547fc4f"
-    root_volume_size = 30
+    root_volume_size = 20
     instance_type = "t3.small"
   },
   payment = {
