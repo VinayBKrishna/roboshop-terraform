@@ -85,7 +85,7 @@ eks = {
         }
     }
     addons = {
-      metrics-server = {}
+
     }
   }
 }
