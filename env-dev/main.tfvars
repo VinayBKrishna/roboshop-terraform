@@ -84,6 +84,9 @@ eks = {
           instance_type = ["t3.medium","t3.large"]
         }
     }
+    addons = {
+      metrics-server = {}
+    }
   }
 }
 
