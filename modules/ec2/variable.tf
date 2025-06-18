@@ -23,4 +23,3 @@ variable "ami_id" {
 
 variable "ansible_role" {}
 
-variable "addons" {}
