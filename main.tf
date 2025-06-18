@@ -1,5 +1,5 @@
 # module "ec2" {
-#     for_each = var.instance
+#     for_each = var.db_instances
 #
 #     source = "./modules/ec2"
 #
@@ -21,5 +21,5 @@ module "eks" {
     eks_version = each.value["eks_version"]
     subnets = each.value["subnets"]
     node_groups = each.value["node_groups"]
-    addons = each.value["addons"]
+     addons = each.value["addons"]
 }
